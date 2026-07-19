@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply overflow-x-hidden bg-void font-sans text-slate-300 antialiased;
+  }
+
+  ::selection {
+    @apply bg-violet-500/40 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030014;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-800;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-violet-400 ring-offset-2 ring-offset-void;
+  }
+}
+
+@layer utilities {
+  /* keeps text readable when it sits on top of the bright galaxy core */
+  .text-shadow {
+    text-shadow: 0 2px 16px rgba(3, 0, 20, 0.9);
+  }
+}
